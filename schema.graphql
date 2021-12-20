@@ -52,6 +52,15 @@ type Event @jsonField {
   meta: String!
 }
 
+type User @entity {
+  id: ID!
+  owned: [NFTEntity!]! @derivedFrom(field: "currentOwner")
+  created: [NFTEntity!]! @derivedFrom(field: "issuer")
+  avatar: String
+  handle: String
+  background: String
+}
+
 type Emote @entity {
   id: ID!
   nft: NFTEntity!
